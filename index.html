@@ -3,13 +3,13 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  
+
   <!-- SEO Optimization -->
   <title>Cherie Linda | Sensual Rituals & Sacred Wealth for Women</title>
   <meta name="description" content="Soft power, sacred rituals, and feminine embodiment. Your sanctuary for sensuality, sovereignty, and ritual devotion. Tools starting at $22." />
   <meta name="keywords" content="feminine energy, sacred rituals, sensual embodiment, soft power, women's empowerment, ritual tools, sacred feminine, Cherie Linda" />
   <meta name="author" content="Cherie Linda" />
-  
+
   <!-- Social Sharing Power -->
   <meta property="og:title" content="Cherie Linda | Sensual Rituals & Sacred Wealth" />
   <meta property="og:description" content="A sanctuary for women who embody softness as power. Tools, rituals & portals for the sacred feminine. Enter the Vault or join the Velvet Letters." />
@@ -19,21 +19,20 @@
   <meta property="og:url" content="https://cherielinda.com" />
   <meta property="og:type" content="website" />
   <meta property="og:site_name" content="Cherie Linda" />
-  
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="Cherie Linda | Sensual Rituals & Sacred Wealth" />
   <meta name="twitter:description" content="A sanctuary for women who embody softness as power. Tools & rituals for the sacred feminine." />
   <meta name="twitter:image" content="https://cherielinda.com/sigil_social.png" />
-  
+
   <!-- Favicon -->
   <link rel="icon" type="image/png" sizes="32x32" href="sigil_transparent.png" />
   <link rel="apple-touch-icon" sizes="180x180" href="sigil_transparent.png" />
-  
-  <!-- Typography Hierarchy - Premium Fonts -->
+
+  <!-- Premium Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;700&family=Cormorant+Garamond:wght@300;400;500&display=swap" rel="stylesheet">
-  
+
   <style>
     * {
       margin: 0;
@@ -41,13 +40,30 @@
       box-sizing: border-box;
     }
 
-    /* Typography Hierarchy - Premium Authority */
     body {
       font-family: 'Cormorant Garamond', 'Georgia', serif;
       background: #1e0f13;
       color: #f6e7df;
       overflow-x: hidden;
       line-height: 1.6;
+      min-height: 100vh;
+    }
+
+    /* Luxe background with depth */
+    body::before {
+      content: '';
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-image: 
+        radial-gradient(circle at 25% 75%, rgba(246, 231, 223, 0.08) 0%, transparent 50%),
+        radial-gradient(circle at 75% 25%, rgba(244, 218, 208, 0.05) 0%, transparent 50%),
+        radial-gradient(circle at 50% 50%, rgba(249, 230, 221, 0.03) 0%, transparent 70%),
+        linear-gradient(135deg, rgba(78, 46, 54, 0.02) 0%, transparent 50%);
+      pointer-events: none;
+      z-index: -1;
     }
 
     header {
@@ -57,7 +73,6 @@
       animation: gentleRise 1.8s ease-out 0.3s forwards;
     }
 
-    /* Feminine Luxury Cues - Enhanced Sigil */
     .sigil {
       width: 110px;
       height: auto;
@@ -77,13 +92,13 @@
       font-size: 2rem;
       font-weight: 700;
       margin: 0 0 1rem;
-      color: #f9e6dd;
       letter-spacing: 0.02em;
       text-shadow: 0 3px 12px rgba(0, 0, 0, 0.4);
       background: linear-gradient(135deg, #f9e6dd 0%, #faf0e8 50%, #f9e6dd 100%);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
       background-clip: text;
+      color: #f9e6dd; /* Fallback for browsers that don't support background-clip */
     }
 
     .subhead {
@@ -98,7 +113,6 @@
       line-height: 1.5;
     }
 
-    /* Feminine luxury micro-interactions */
     .cta-container {
       display: flex;
       justify-content: center;
@@ -108,7 +122,6 @@
       margin-top: 3rem;
     }
 
-    /* Conversion Psychology - Luxury Button Enhancement */
     .cta-button {
       background: linear-gradient(135deg, #4e2e36, #5a3540);
       color: #f6e7df;
@@ -163,6 +176,11 @@
       letter-spacing: 0.1em;
     }
 
+    .cta-button:focus {
+      outline: 2px solid #f4dad0;
+      outline-offset: 2px;
+    }
+
     @keyframes luxeShimmer {
       0% {
         left: -75%;
@@ -170,11 +188,6 @@
       100% {
         left: 125%;
       }
-    }
-
-    .cta-button:focus {
-      outline: 2px solid #f4dad0;
-      outline-offset: 2px;
     }
 
     .mission {
@@ -215,24 +228,7 @@
       }
     }
 
-    /* Ultra-luxe background depth with feminine energy */
-    body::before {
-      content: '';
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background-image: 
-        radial-gradient(circle at 25% 75%, rgba(246, 231, 223, 0.08) 0%, transparent 50%),
-        radial-gradient(circle at 75% 25%, rgba(244, 218, 208, 0.05) 0%, transparent 50%),
-        radial-gradient(circle at 50% 50%, rgba(249, 230, 221, 0.03) 0%, transparent 70%),
-        linear-gradient(135deg, rgba(78, 46, 54, 0.02) 0%, transparent 50%);
-      pointer-events: none;
-      z-index: -1;
-    }
-
-    /* Responsive refinements */
+    /* Responsive Design */
     @media (max-width: 768px) {
       header {
         padding: 3rem 1.5rem 1.5rem;
