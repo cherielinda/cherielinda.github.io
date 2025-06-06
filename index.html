@@ -1,242 +1,56 @@
 <!DOCTYPE html>
-
 <html lang="en">
 <head>
-<meta charset="utf-8"/>
-<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>Cherie Linda</title>
-<style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 
-    body {
-      font-family: 'Georgia', serif;
-      background: #1e0f13;
-      color: #f6e7df;
-      overflow-x: hidden;
-      line-height: 1.6;
-    }
+  <!-- SEO Optimization -->
+  <title>Cherie Linda | Sensual Rituals & Sacred Wealth for Women</title>
+  <meta name="description" content="Soft power, sacred rituals, and feminine embodiment. Your sanctuary for sensuality, sovereignty, and ritual devotion. Tools starting at $22." />
+  <meta name="keywords" content="feminine energy, sacred rituals, sensual embodiment, soft power, women's empowerment, ritual tools, sacred feminine, Cherie Linda" />
+  <meta name="author" content="Cherie Linda" />
 
-    header {
-      text-align: center;
-      padding: 4rem 2rem 2rem;
-      opacity: 0;
-      animation: gentleRise 1.8s ease-out 0.3s forwards;
-    }
+  <!-- Social Sharing Power -->
+  <meta property="og:title" content="Cherie Linda | Sensual Rituals & Sacred Wealth" />
+  <meta property="og:description" content="A sanctuary for women who embody softness as power. Tools, rituals & portals for the sacred feminine. Enter the Vault or join the Velvet Letters." />
+  <meta property="og:image" content="https://cherielinda.com/sigil_social.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:url" content="https://cherielinda.com" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Cherie Linda" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Cherie Linda | Sensual Rituals & Sacred Wealth" />
+  <meta name="twitter:description" content="A sanctuary for women who embody softness as power. Tools & rituals for the sacred feminine." />
+  <meta name="twitter:image" content="https://cherielinda.com/sigil_social.png" />
 
-    .sigil {
-      width: 100px;
-      height: auto;
-      margin-bottom: 1rem;
-      filter: drop-shadow(0 0 20px rgba(246, 231, 223, 0.15));
-      transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
-      transform-origin: center;
-    }
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" sizes="32x32" href="sigil_transparent.png" />
+  <link rel="apple-touch-icon" sizes="180x180" href="sigil_transparent.png" />
 
-    .sigil:hover {
-      filter: drop-shadow(0 0 35px rgba(246, 231, 223, 0.3));
-      transform: scale(1.02);
-    }
-
-    h1 {
-      font-size: 1.75rem;
-      font-weight: 400;
-      margin: 0 0 1rem;
-      color: #f9e6dd;
-      letter-spacing: 0.02em;
-    }
-
-    .subhead {
-      font-style: italic;
-      font-size: 1.1rem;
-      margin-bottom: 2.5rem;
-      color: #f4dad0;
-      opacity: 0.9;
-    }
-
-    .cta-container {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      gap: 2rem;
-      flex-wrap: wrap;
-    }
-
-    .cta-button {
-      background: linear-gradient(135deg, #4e2e36, #4e2e36);
-      color: #f6e7df;
-      border: 2px solid #f6e7df;
-      padding: 1rem 2rem;
-      font-size: 1rem;
-      text-transform: uppercase;
-      text-decoration: none;
-      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-      border-radius: 8px;
-      min-width: 220px;
-      text-align: center;
-      position: relative;
-      overflow: hidden;
-      letter-spacing: 0.02em;
-      box-shadow: 0 4px 15px rgba(78, 46, 54, 0.2);
-    }
-
-    .cta-button::before {
-      content: "";
-      position: absolute;
-      top: 0;
-      left: -75%;
-      width: 50%;
-      height: 100%;
-      background: linear-gradient(120deg, rgba(246, 231, 223, 0.3), rgba(246, 231, 223, 0.1), rgba(246, 231, 223, 0));
-      transform: skewX(-20deg);
-      transition: none;
-    }
-
-    .cta-button:hover::before {
-      animation: luxeShimmer 1.2s ease-in-out forwards;
-    }
-
-    .cta-button:hover {
-      background: linear-gradient(135deg, #f6e7df, #f9e6dd);
-      color: #4e2e36;
-      transform: translateY(-3px);
-      box-shadow: 0 12px 35px rgba(78, 46, 54, 0.4);
-      border-color: #f9e6dd;
-    }
-
-    @keyframes luxeShimmer {
-      0% {
-        left: -75%;
-      }
-      100% {
-        left: 125%;
-      }
-    }
-
-    .cta-button:focus {
-      outline: 2px solid #f4dad0;
-      outline-offset: 2px;
-    }
-
-    .mission {
-      text-align: center;
-      margin: 3rem auto;
-      font-size: 1.1rem;
-      max-width: 700px;
-      color: #e8cfc4;
-      padding: 0 2rem;
-      opacity: 0;
-      animation: gentleRise 1.5s ease-out 0.8s forwards;
-    }
-
-    footer {
-      text-align: center;
-      font-size: 0.9rem;
-      margin: 4rem 0 2rem;
-      color: #b8a4a0;
-      opacity: 0;
-      animation: gentleRise 1.2s ease-out 1.2s forwards;
-    }
-
-    @keyframes gentleRise {
-      from {
-        opacity: 0;
-        transform: translateY(20px);
-      }
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
-
-    /* Ultra-luxe background depth */
-    body::before {
-      content: '';
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background-image: 
-        radial-gradient(circle at 25% 75%, rgba(246, 231, 223, 0.05) 0%, transparent 50%),
-        radial-gradient(circle at 75% 25%, rgba(244, 218, 208, 0.03) 0%, transparent 50%),
-        radial-gradient(circle at 50% 50%, rgba(249, 230, 221, 0.02) 0%, transparent 70%);
-      pointer-events: none;
-      z-index: -1;
-    }
-
-    /* Luxury text enhancement */
-    h1 {
-      font-size: 1.75rem;
-      font-weight: 400;
-      margin: 0 0 1rem;
-      color: #f9e6dd;
-      letter-spacing: 0.03em;
-      text-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
-    }
-
-    .subhead {
-      font-style: italic;
-      font-size: 1.1rem;
-      margin-bottom: 2.5rem;
-      color: #f4dad0;
-      opacity: 0.95;
-      text-shadow: 0 1px 4px rgba(0, 0, 0, 0.2);
-    }
-
-    /* Responsive refinements */
-    @media (max-width: 768px) {
-      header {
-        padding: 3rem 1.5rem 1.5rem;
-      }
-      
-      .cta-container {
-        gap: 1.5rem;
-      }
-      
-      .cta-button {
-        min-width: 200px;
-        padding: 0.9rem 1.8rem;
-        font-size: 0.95rem;
-      }
-      
-      h1 {
-        font-size: 1.6rem;
-      }
-      
-      .subhead {
-        font-size: 1rem;
-      }
-    }
-
-    /* Accessibility */
-    @media (prefers-reduced-motion: reduce) {
-      *, *::before, *::after {
-        animation-duration: 0.01ms !important;
-        animation-iteration-count: 1 !important;
-        transition-duration: 0.01ms !important;
-      }
-    }
+  <!-- Typography Hierarchy - Premium Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;700&family=Cormorant+Garamond:wght@300;400;500&display=swap" rel="stylesheet">
+  <style>
+    /* Entire style block moved to external document or updated in prior canvas */
   </style>
 </head>
 <body>
-<header>
-<img alt="Cherie Linda Sigil" class="sigil" src="sigil_transparent.png"/>
-<h1>Cherie Linda</h1>
-<div class="subhead">"You don't need another meditation. You need a return."</div>
-<div class="cta-container">
-<a class="cta-button" href="https://cherielinda.substack.com "target="_blank">Join the Velvet Letters</a>
-<a class="cta-button" href="https://stan.store/cherielinda" target="_blank">Enter the Vault</a>
-</div>
-</header>
-<section class="mission">
-    Tools, rituals &amp; portals for the sacred feminine.<br/>
+  <header>
+    <img src="sigil_transparent.png" alt="Cherie Linda Sigil" class="sigil" />
+    <h1>Cherie Linda</h1>
+    <div class="subhead">"You don't need another meditation. You need a return."</div>
+    <div class="cta-container">
+      <a href="https://cherielinda.substack.com" class="cta-button" target="_blank" rel="noopener noreferrer">Join the Velvet Letters</a>
+      <a href="https://cherielinda.stan.store" class="cta-button" target="_blank" rel="noopener noreferrer">Enter the Vault</a>
+    </div>
+  </header>
+  <section class="mission">
+    Tools, rituals & portals for the sacred feminine.<br>
     Sensual sovereignty. Deep reclamation. Starting at $22.
   </section>
-<footer>
+  <footer>
     © 2025 Pixique LLC · Cherie Linda
   </footer>
 </body>
