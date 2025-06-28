@@ -1,0 +1,791 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>What Ritual Does Your Energy Need Right Now? | Cherie Linda</title>
+    
+    <!-- Fixed: Moved font links outside of style block -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;700&family=Cormorant+Garamond:wght@300;400;500&display=swap" rel="stylesheet">
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Cormorant Garamond', 'Georgia', serif;
+            background: #1e0f13;
+            color: #f6e7df;
+            overflow-x: hidden;
+            line-height: 1.6;
+            min-height: 100vh;
+        }
+        
+        /* Luxe background with depth */
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: 
+                radial-gradient(circle at 25% 75%, rgba(246, 231, 223, 0.08) 0%, transparent 50%),
+                radial-gradient(circle at 75% 25%, rgba(244, 218, 208, 0.05) 0%, transparent 50%),
+                radial-gradient(circle at 50% 50%, rgba(249, 230, 221, 0.03) 0%, transparent 70%),
+                linear-gradient(135deg, rgba(78, 46, 54, 0.02) 0%, transparent 50%);
+            pointer-events: none;
+            z-index: -1;
+        }
+        
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        .quiz-header {
+            text-align: center;
+            margin-bottom: 40px;
+            padding: 40px 20px;
+        }
+        
+        .brand-name {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            letter-spacing: 0.02em;
+            text-shadow: 0 3px 12px rgba(0, 0, 0, 0.4);
+            background: linear-gradient(135deg, #f9e6dd 0%, #faf0e8 50%, #f9e6dd 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            color: #f9e6dd;
+        }
+        
+        .quiz-title {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 2.8rem;
+            font-weight: 400;
+            color: #f6e7df;
+            margin-bottom: 20px;
+            line-height: 1.2;
+            text-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+        }
+        
+        .quiz-intro {
+            font-family: 'Cormorant Garamond', serif;
+            font-style: italic;
+            font-size: 1.15rem;
+            font-weight: 400;
+            color: #f4dad0;
+            opacity: 0.95;
+            text-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+            line-height: 1.5;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        .question-card {
+            background: rgba(78, 46, 54, 0.15);
+            backdrop-filter: blur(15px);
+            border-radius: 20px;
+            padding: 40px;
+            margin-bottom: 30px;
+            box-shadow: 
+                0 8px 32px rgba(0, 0, 0, 0.3),
+                0 2px 8px rgba(0, 0, 0, 0.2),
+                inset 0 1px 0 rgba(246, 231, 223, 0.1);
+            border: 2px solid rgba(246, 231, 223, 0.2);
+            display: none;
+        }
+        
+        .question-card.active {
+            display: block;
+            animation: fadeIn 0.6s ease-in;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .question-number {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.1rem;
+            color: #f4dad0;
+            margin-bottom: 15px;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+        
+        .question-text {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 2rem;
+            color: #f6e7df;
+            margin-bottom: 30px;
+            font-weight: 400;
+            font-style: italic;
+            text-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+        }
+        
+        .options {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+        
+        .option {
+            background: rgba(78, 46, 54, 0.12);
+            border: 2px solid rgba(246, 231, 223, 0.3);
+            border-radius: 15px;
+            padding: 20px 25px;
+            cursor: pointer;
+            transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.05rem;
+            font-weight: 400;
+            color: #f4dad0;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .option::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: -75%;
+            width: 50%;
+            height: 100%;
+            background: linear-gradient(120deg, 
+                rgba(246, 231, 223, 0.3), 
+                rgba(246, 231, 223, 0.2), 
+                rgba(246, 231, 223, 0.05),
+                rgba(246, 231, 223, 0));
+            transform: skewX(-20deg);
+            transition: none;
+        }
+        
+        .option:hover {
+            background: rgba(78, 46, 54, 0.25);
+            border-color: #f6e7df;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+        }
+        
+        .option:hover::before {
+            animation: luxeShimmer 1.2s ease-in-out forwards;
+        }
+        
+        .option.selected {
+            background: linear-gradient(135deg, #4e2e36, #5a3540);
+            border-color: #f6e7df;
+            color: #faf0e8;
+            box-shadow: 
+                0 6px 20px rgba(78, 46, 54, 0.4),
+                0 2px 8px rgba(0, 0, 0, 0.3),
+                inset 0 1px 0 rgba(246, 231, 223, 0.1);
+        }
+        
+        .navigation {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 30px;
+        }
+        
+        .btn {
+            padding: 12px 30px;
+            border: none;
+            border-radius: 12px;
+            cursor: pointer;
+            font-family: 'Playfair Display', serif;
+            font-weight: 500;
+            transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+            font-size: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .btn-primary {
+            background: linear-gradient(135deg, #4e2e36, #5a3540);
+            color: #f6e7df;
+            border: 2px solid rgba(246, 231, 223, 0.8);
+            box-shadow: 
+                0 6px 20px rgba(78, 46, 54, 0.25),
+                0 2px 8px rgba(0, 0, 0, 0.2),
+                inset 0 1px 0 rgba(246, 231, 223, 0.1);
+        }
+        
+        .btn-primary::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: -75%;
+            width: 50%;
+            height: 100%;
+            background: linear-gradient(120deg, 
+                rgba(246, 231, 223, 0.5), 
+                rgba(246, 231, 223, 0.3), 
+                rgba(246, 231, 223, 0.1),
+                rgba(246, 231, 223, 0));
+            transform: skewX(-20deg);
+            transition: none;
+        }
+        
+        .btn-primary:hover {
+            background: linear-gradient(135deg, #f6e7df, #faf0e8);
+            color: #4e2e36;
+            transform: translateY(-4px) scale(1.02);
+            box-shadow: 
+                0 15px 40px rgba(78, 46, 54, 0.4),
+                0 8px 25px rgba(246, 231, 223, 0.2);
+            border-color: #faf0e8;
+            letter-spacing: 0.1em;
+        }
+        
+        .btn-primary:hover::before {
+            animation: luxeShimmer 1.4s ease-in-out forwards;
+        }
+        
+        .btn-secondary {
+            background: transparent;
+            color: #f4dad0;
+            border: 2px solid rgba(246, 231, 223, 0.6);
+        }
+        
+        .btn-secondary:hover {
+            background: rgba(78, 46, 54, 0.3);
+            color: #faf0e8;
+            border-color: #f6e7df;
+        }
+        
+        .btn:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+        
+        .email-section {
+            background: rgba(78, 46, 54, 0.15);
+            border-radius: 15px;
+            padding: 25px;
+            margin-top: 20px;
+            border: 1px solid rgba(246, 231, 223, 0.2);
+        }
+        
+        .email-input {
+            width: 100%;
+            padding: 15px;
+            border: 2px solid rgba(246, 231, 223, 0.3);
+            border-radius: 10px;
+            font-size: 1rem;
+            font-family: 'Cormorant Garamond', serif;
+            background: rgba(78, 46, 54, 0.1);
+            margin-top: 10px;
+            color: #f6e7df;
+        }
+        
+        .email-input::placeholder {
+            color: #e8cfc4;
+            opacity: 0.7;
+        }
+        
+        .email-input:focus {
+            outline: none;
+            border-color: #f6e7df;
+            background: rgba(78, 46, 54, 0.2);
+        }
+        
+        .result-page {
+            display: none;
+            text-align: center;
+            padding: 40px 20px;
+        }
+        
+        .result-page.active {
+            display: block;
+            animation: fadeIn 0.8s ease-in;
+        }
+        
+        .result-icon {
+            font-size: 4rem;
+            margin-bottom: 20px;
+        }
+        
+        .result-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 3rem;
+            color: #f6e7df;
+            margin-bottom: 20px;
+            font-weight: 500;
+            text-shadow: 0 3px 12px rgba(0, 0, 0, 0.4);
+        }
+        
+        .result-description {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.2rem;
+            color: #f4dad0;
+            margin-bottom: 30px;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+            font-style: italic;
+            text-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+        }
+        
+        .ritual-details {
+            background: rgba(78, 46, 54, 0.15);
+            backdrop-filter: blur(15px);
+            border-radius: 20px;
+            padding: 30px;
+            margin: 30px 0;
+            text-align: left;
+            border: 2px solid rgba(246, 231, 223, 0.2);
+            box-shadow: 
+                0 8px 32px rgba(0, 0, 0, 0.3),
+                0 2px 8px rgba(0, 0, 0, 0.2),
+                inset 0 1px 0 rgba(246, 231, 223, 0.1);
+        }
+        
+        .ritual-includes {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.3rem;
+            color: #f6e7df;
+            margin-bottom: 15px;
+            font-weight: 500;
+        }
+        
+        .includes-list {
+            list-style: none;
+            margin-bottom: 25px;
+        }
+        
+        .includes-list li {
+            font-family: 'Cormorant Garamond', serif;
+            color: #f4dad0;
+            margin-bottom: 10px;
+            padding-left: 25px;
+            position: relative;
+            font-size: 1.05rem;
+        }
+        
+        .includes-list li:before {
+            content: "✨";
+            position: absolute;
+            left: 0;
+        }
+        
+        .cta-section {
+            background: linear-gradient(135deg, #4e2e36, #5a3540);
+            color: #f6e7df;
+            border: 2px solid rgba(246, 231, 223, 0.8);
+            border-radius: 20px;
+            padding: 30px;
+            margin-top: 30px;
+            box-shadow: 
+                0 6px 20px rgba(78, 46, 54, 0.25),
+                0 2px 8px rgba(0, 0, 0, 0.2),
+                inset 0 1px 0 rgba(246, 231, 223, 0.1);
+        }
+        
+        .price {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8rem;
+            margin-bottom: 15px;
+            font-weight: 500;
+        }
+        
+        .bundle-offer {
+            background: rgba(246, 231, 223, 0.15);
+            border-radius: 15px;
+            padding: 20px;
+            margin-top: 20px;
+            border: 1px solid rgba(246, 231, 223, 0.3);
+        }
+        
+        .progress-bar {
+            width: 100%;
+            height: 6px;
+            background: rgba(78, 46, 54, 0.3);
+            border-radius: 3px;
+            margin-bottom: 30px;
+            overflow: hidden;
+        }
+        
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(135deg, #f6e7df 0%, #faf0e8 100%);
+            transition: width 0.6s ease;
+            border-radius: 3px;
+            box-shadow: 0 0 10px rgba(246, 231, 223, 0.3);
+        }
+        
+        @keyframes luxeShimmer {
+            0% {
+                left: -75%;
+            }
+            100% {
+                left: 125%;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .brand-name {
+                font-size: 2rem;
+            }
+            
+            .quiz-title {
+                font-size: 2.2rem;
+            }
+            
+            .question-card {
+                padding: 25px;
+                margin: 0 10px 20px;
+            }
+            
+            .question-text {
+                font-size: 1.5rem;
+            }
+            
+            .result-title {
+                font-size: 2.2rem;
+            }
+            
+            .quiz-intro {
+                font-size: 1.05rem;
+            }
+            
+            .option {
+                font-size: 1rem;
+            }
+        }
+
+        /* Add sigil placeholder for brand consistency */
+        .sigil-placeholder {
+            width: 80px;
+            height: 80px;
+            margin: 0 auto 1.5rem;
+            background: linear-gradient(135deg, rgba(246, 231, 223, 0.2), rgba(249, 230, 221, 0.15));
+            border: 2px solid rgba(246, 231, 223, 0.3);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            color: #f6e7df;
+            filter: drop-shadow(0 0 20px rgba(246, 231, 223, 0.2));
+            transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        
+        .sigil-placeholder:hover {
+            transform: scale(1.05) rotate(5deg);
+            filter: drop-shadow(0 0 30px rgba(246, 231, 223, 0.4));
+        }
+        /* Home navigation link */
+        .home-link {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            color: #f4dad0;
+            text-decoration: none;
+            font-family: 'Playfair Display', serif;
+            font-size: 0.9rem;
+            opacity: 0.8;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+        
+        .home-link:hover {
+            opacity: 1;
+            color: #f6e7df;
+        }
+    </style>
+</head>
+<body>
+    <a href="/" class="home-link">← Back to Home</a>
+    
+    <div class="container">
+        <div class="quiz-header">
+            <div class="sigil-placeholder">✧</div>
+            <div class="brand-name">Cherie Linda</div>
+            <h1 class="quiz-title">What Ritual Does Your Energy Need Right Now?</h1>
+            <p class="quiz-intro">
+                You don't have to explain why you're here.<br>
+                This is your private moment of pause — to reconnect with your unmet need.<br>
+                Answer a few questions below. You'll be guided to the ritual that matches your current energetic state.
+            </p>
+        </div>
+
+        <div class="progress-bar">
+            <div class="progress-fill" id="progressFill"></div>
+        </div>
+
+        <!-- Question 1 -->
+        <div class="question-card active" id="q1">
+            <div class="question-number">Question 1 of 4</div>
+            <h2 class="question-text">What are you quietly craving right now?</h2>
+            <div class="options">
+                <div class="option" data-value="sacred-no" data-question="1">To be left alone — I feel energetically exposed</div>
+                <div class="option" data-value="inner-daughter" data-question="1">To be held — I feel emotionally young or tender</div>
+                <div class="option" data-value="sacred-no" data-question="1">To draw a line without guilt</div>
+                <div class="option" data-value="inner-daughter" data-question="1">To be seen without having to explain myself</div>
+                <div class="option" data-value="neutral" data-question="1">I'm not sure — I just feel pulled to this</div>
+            </div>
+        </div>
+
+        <!-- Question 2 -->
+        <div class="question-card" id="q2">
+            <div class="question-number">Question 2 of 4</div>
+            <h2 class="question-text">Which phrase resonates most right now?</h2>
+            <div class="options">
+                <div class="option" data-value="sacred-no" data-question="2">"I've said yes too many times."</div>
+                <div class="option" data-value="inner-daughter" data-question="2">"I don't know what I need, but I'm exhausted."</div>
+                <div class="option" data-value="inner-daughter" data-question="2">"I feel raw and emotional."</div>
+                <div class="option" data-value="sacred-no" data-question="2">"I keep abandoning myself to keep the peace."</div>
+                <div class="option" data-value="inner-daughter" data-question="2">"I just want someone to notice how hard it's been."</div>
+            </div>
+        </div>
+
+        <!-- Question 3 -->
+        <div class="question-card" id="q3">
+            <div class="question-number">Question 3 of 4</div>
+            <h2 class="question-text">Where do you feel this in your body?</h2>
+            <div class="options">
+                <div class="option" data-value="body" data-question="3">Jaw or throat — I can't say what I want</div>
+                <div class="option" data-value="body" data-question="3">Womb — I feel empty or violated</div>
+                <div class="option" data-value="body" data-question="3">Chest — there's a quiet sadness</div>
+                <div class="option" data-value="body" data-question="3">Shoulders — I'm carrying too much</div>
+                <div class="option" data-value="body" data-question="3">Eyes — I want to cry but don't</div>
+            </div>
+        </div>
+
+        <!-- Question 4 -->
+        <div class="question-card" id="q4">
+            <div class="question-number">Question 4 of 4</div>
+            <h2 class="question-text">Would you like your ritual sent to your inbox with a bonus audio or reminder later?</h2>
+            <div class="email-section">
+                <p style="margin-bottom: 10px; color: #f4dad0;">Enter your email to receive your personalized ritual guide:</p>
+                <input type="email" class="email-input" id="emailInput" placeholder="your.sacred.email@domain.com">
+            </div>
+            <div class="navigation">
+                <button class="btn btn-secondary" onclick="previousQuestion()">Back</button>
+                <button class="btn btn-primary" onclick="showResults()">Reveal My Ritual</button>
+            </div>
+        </div>
+
+        <!-- Sacred No Result -->
+        <div class="result-page" id="result-sacred-no">
+            <div class="result-icon">✖️</div>
+            <h2 class="result-title">The Sacred No</h2>
+            <p class="result-description">
+                You've been available when you didn't want to be. You've been "nice" when your nervous system said stop.
+            </p>
+            <p class="result-description">
+                <strong>The Sacred No</strong> is your ritual for energetic reset, emotional boundary, and divine refusal.
+            </p>
+            
+            <div class="ritual-details">
+                <div class="ritual-includes">💌 Your ritual includes:</div>
+                <ul class="includes-list">
+                    <li>A guided audio for energetic separation</li>
+                    <li>A spell + affirmation to reclaim your "no"</li>
+                    <li>Journal prompts to rebuild self-trust</li>
+                </ul>
+            </div>
+            
+            <div class="cta-section">
+                <div class="price">Download The Sacred No – $22</div>
+                <button class="btn btn-primary" style="margin-bottom: 10px;" onclick="window.open('https://stan.store/cherielinda', '_blank')">Get Your Ritual Now</button>
+                
+                <div class="bundle-offer">
+                    <strong>Or bundle it with The Inner Daughter for $33 (save $11)</strong>
+                    <br><br>
+                    <button class="btn btn-secondary" onclick="window.open('https://stan.store/cherielinda', '_blank')">Get Both Rituals</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Inner Daughter Result -->
+        <div class="result-page" id="result-inner-daughter">
+            <div class="result-icon">🩵</div>
+            <h2 class="result-title">The Inner Daughter</h2>
+            <p class="result-description">
+                Beneath your strength is a softness that's gone unseen. This ritual helps you tend to the inner you — the one who still hopes to be chosen, comforted, and cherished.
+            </p>
+            <p class="result-description">
+                <strong>The Inner Daughter</strong> is your safe place to feel, receive, and restore.
+            </p>
+            
+            <div class="ritual-details">
+                <div class="ritual-includes">💌 Your ritual includes:</div>
+                <ul class="includes-list">
+                    <li>A soothing audio reparenting ritual</li>
+                    <li>Journal prompts for inner connection</li>
+                    <li>A self-tending ritual for neglected parts</li>
+                </ul>
+            </div>
+            
+            <div class="cta-section">
+                <div class="price">Download The Inner Daughter – $22</div>
+                <button class="btn btn-primary" style="margin-bottom: 10px;" onclick="window.open('https://stan.store/cherielinda', '_blank')">Get Your Ritual Now</button>
+                
+                <div class="bundle-offer">
+                    <strong>Or bundle it with The Sacred No for $33 (save $11)</strong>
+                    <br><br>
+                    <button class="btn btn-secondary" onclick="window.open('https://stan.store/cherielinda', '_blank')">Get Both Rituals</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="navigation" id="mainNavigation">
+            <button class="btn btn-secondary" onclick="previousQuestion()" id="backBtn" style="display: none;">Back</button>
+            <button class="btn btn-primary" onclick="nextQuestion()" id="nextBtn" disabled>Next</button>
+        </div>
+    </div>
+
+    <script>
+        let currentQuestion = 1;
+        const totalQuestions = 4;
+        let answers = {};
+        let scores = { 'sacred-no': 0, 'inner-daughter': 0 };
+
+        function updateProgress() {
+            const progress = (currentQuestion - 1) / totalQuestions * 100;
+            document.getElementById('progressFill').style.width = progress + '%';
+        }
+
+        function showQuestion(questionNum) {
+            // Hide all questions
+            document.querySelectorAll('.question-card').forEach(card => {
+                card.classList.remove('active');
+            });
+            
+            // Show current question
+            document.getElementById('q' + questionNum).classList.add('active');
+            
+            // Update navigation
+            updateNavigation();
+            updateProgress();
+        }
+
+        function updateNavigation() {
+            const backBtn = document.getElementById('backBtn');
+            const nextBtn = document.getElementById('nextBtn');
+            const mainNav = document.getElementById('mainNavigation');
+            
+            if (currentQuestion === 4) {
+                mainNav.style.display = 'none';
+                return;
+            } else {
+                mainNav.style.display = 'flex';
+            }
+            
+            backBtn.style.display = currentQuestion > 1 ? 'block' : 'none';
+            
+            // Check if current question is answered
+            const currentAnswer = answers[currentQuestion];
+            nextBtn.disabled = !currentAnswer;
+        }
+
+        function nextQuestion() {
+            if (currentQuestion < totalQuestions) {
+                currentQuestion++;
+                showQuestion(currentQuestion);
+            }
+        }
+
+        function previousQuestion() {
+            if (currentQuestion > 1) {
+                currentQuestion--;
+                showQuestion(currentQuestion);
+            }
+        }
+
+        function showResults() {
+            const email = document.getElementById('emailInput').value;
+            
+            // Hide all question cards
+            document.querySelectorAll('.question-card').forEach(card => {
+                card.classList.remove('active');
+            });
+            
+            // Hide navigation
+            document.getElementById('mainNavigation').style.display = 'none';
+            
+            // Hide progress bar
+            document.querySelector('.progress-bar').style.display = 'none';
+            
+            // Determine result based on scores
+            let result;
+            if (scores['sacred-no'] > scores['inner-daughter']) {
+                result = 'sacred-no';
+            } else if (scores['inner-daughter'] > scores['sacred-no']) {
+                result = 'inner-daughter';
+            } else {
+                // Tie-breaker: default to Inner Daughter for nurturing
+                result = 'inner-daughter';
+            }
+            
+            // Show appropriate result
+            document.getElementById('result-' + result).classList.add('active');
+            
+            // Store email if provided
+            if (email) {
+                console.log('Email captured:', email);
+                // Here you would typically send this to your email service
+            }
+        }
+
+        // Handle option clicks
+        document.addEventListener('click', function(e) {
+            if (e.target.classList.contains('option')) {
+                const question = e.target.getAttribute('data-question');
+                const value = e.target.getAttribute('data-value');
+                
+                // Remove selection from other options in same question
+                const questionCard = e.target.closest('.question-card');
+                questionCard.querySelectorAll('.option').forEach(opt => {
+                    opt.classList.remove('selected');
+                });
+                
+                // Add selection to clicked option
+                e.target.classList.add('selected');
+                
+                // Store answer
+                answers[question] = value;
+                
+                // Update scores (only for questions 1 and 2)
+                if (question <= 2) {
+                    if (value === 'sacred-no') {
+                        scores['sacred-no']++;
+                    } else if (value === 'inner-daughter') {
+                        scores['inner-daughter']++;
+                    }
+                }
+                
+                // Update navigation
+                updateNavigation();
+                
+                // Auto-advance after short delay (except for last question)
+                if (currentQuestion < 4) {
+                    setTimeout(() => {
+                        nextQuestion();
+                    }, 800);
+                }
+            }
+        });
+
+        // Initialize
+        updateProgress();
+        updateNavigation();
+                        
