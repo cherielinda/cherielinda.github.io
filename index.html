@@ -2,15 +2,17 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-  <!-- SEO Optimization -->
+  <!-- Primary SEO -->
   <title>Cherie Linda | Sensual Rituals & Sacred Wealth for Women</title>
   <meta name="description" content="Soft power, sacred rituals, and feminine embodiment. Your sanctuary for sensuality, sovereignty, and ritual devotion. Tools starting at $22." />
   <meta name="keywords" content="feminine energy, sacred rituals, sensual embodiment, soft power, women's empowerment, ritual tools, sacred feminine, Cherie Linda" />
   <meta name="author" content="Cherie Linda" />
+  <link rel="canonical" href="https://cherielinda.com" />
+  <meta name="theme-color" content="#1e0f13" />
 
-  <!-- Social Sharing Power -->
+  <!-- Open Graph / Social -->
   <meta property="og:title" content="Cherie Linda | Sensual Rituals & Sacred Wealth" />
   <meta property="og:description" content="A sanctuary for women who embody softness as power. Tools, rituals & portals for the sacred feminine. Enter the Vault or join the Velvet Letters." />
   <meta property="og:image" content="https://cherielinda.com/sigil_social.png" />
@@ -24,268 +26,168 @@
   <meta name="twitter:description" content="A sanctuary for women who embody softness as power. Tools & rituals for the sacred feminine." />
   <meta name="twitter:image" content="https://cherielinda.com/sigil_social.png" />
 
-<!-- Favicons -->
-  <link rel="shortcut icon" href="favicon.ico"/>
+  <!-- Favicons (add files to your root) -->
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
+  <link rel="icon" type="image/png" sizes="192x192" href="/android-chrome-192x192.png">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  <link rel="shortcut icon" href="/favicon.ico" />
 
-  <!-- Premium Fonts -->
+  <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;700&family=Cormorant+Garamond:wght@300;400;500&display=swap" rel="stylesheet">
 
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
+  <!-- Preload key image -->
+  <link rel="preload" as="image" href="/sigil_transparent.png" />
 
+  <!-- Organization Schema -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "Cherie Linda",
+    "url": "https://cherielinda.com",
+    "logo": "https://cherielinda.com/sigil_transparent.png",
+    "sameAs": [
+      "https://cherielinda.substack.com",
+      "https://pensight.com/x/cherielinda",
+      "https://www.tiktok.com/@cherielinda"
+    ]
+  }
+  </script>
+
+  <style>
+    /* Reset */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    /* Base */
     body {
       font-family: 'Cormorant Garamond', 'Georgia', serif;
-      background: #1e0f13;
+      background: #1e0f13; /* deep velvet */
       color: #f6e7df;
-      overflow-x: hidden;
       line-height: 1.6;
       min-height: 100vh;
+      overflow-x: hidden;
     }
 
-    /* Luxe background with depth */
+    /* Luxe background depth */
     body::before {
       content: '';
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background-image: 
-        radial-gradient(circle at 25% 75%, rgba(246, 231, 223, 0.08) 0%, transparent 50%),
-        radial-gradient(circle at 75% 25%, rgba(244, 218, 208, 0.05) 0%, transparent 50%),
-        radial-gradient(circle at 50% 50%, rgba(249, 230, 221, 0.03) 0%, transparent 70%),
-        linear-gradient(135deg, rgba(78, 46, 54, 0.02) 0%, transparent 50%);
-      pointer-events: none;
-      z-index: -1;
+      position: fixed; inset: 0;
+      background-image:
+        radial-gradient(circle at 25% 75%, rgba(246,231,223,.08) 0%, transparent 50%),
+        radial-gradient(circle at 75% 25%, rgba(244,218,208,.05) 0%, transparent 50%),
+        radial-gradient(circle at 50% 50%, rgba(249,230,221,.03) 0%, transparent 70%),
+        linear-gradient(135deg, rgba(78,46,54,.02) 0%, transparent 50%);
+      pointer-events: none; z-index: -1;
     }
 
     header {
       text-align: center;
       padding: 4rem 2rem 2rem;
-      opacity: 0;
-      animation: gentleRise 1.8s ease-out 0.3s forwards;
+      opacity: 0; animation: gentleRise 1.8s ease-out .3s forwards;
     }
 
     .sigil {
-      width: 110px;
-      height: auto;
-      margin-bottom: 1.5rem;
-      filter: drop-shadow(0 0 25px rgba(246, 231, 223, 0.2)) drop-shadow(0 0 50px rgba(249, 230, 221, 0.1));
-      transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+      width: 110px; height: auto; margin-bottom: 1.5rem;
+      filter: drop-shadow(0 0 25px rgba(246,231,223,.2)) drop-shadow(0 0 50px rgba(249,230,221,.1));
       transform-origin: center;
+      transition: transform .6s cubic-bezier(.4,0,.2,1), filter .6s cubic-bezier(.4,0,.2,1);
+      /* breathing added below */
+      animation: gentleRise 1.8s ease-out .3s forwards, breathe 6s ease-in-out 2.2s infinite;
     }
 
-    .sigil:hover {
-      filter: drop-shadow(0 0 40px rgba(246, 231, 223, 0.4)) drop-shadow(0 0 80px rgba(249, 230, 221, 0.2));
-      transform: scale(1.03) rotate(1deg);
-    }
+    .sigil:hover { filter: drop-shadow(0 0 40px rgba(246,231,223,.4)) drop-shadow(0 0 80px rgba(249,230,221,.2)); transform: scale(1.03) rotate(1deg); }
 
     h1 {
       font-family: 'Playfair Display', serif;
-      font-size: 2rem;
-      font-weight: 700;
-      margin: 0 0 1rem;
-      letter-spacing: 0.02em;
-      text-shadow: 0 3px 12px rgba(0, 0, 0, 0.4);
-      background: linear-gradient(135deg, #f9e6dd 0%, #faf0e8 50%, #f9e6dd 100%);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
-      color: #f9e6dd; /* Fallback for browsers that don't support background-clip */
+      font-size: 2rem; font-weight: 700; margin: 0 0 1rem; letter-spacing: .02em;
+      text-shadow: 0 3px 12px rgba(0,0,0,.4);
+      background: linear-gradient(135deg,#f9e6dd 0%,#faf0e8 50%,#f9e6dd 100%);
+      -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; color: #f9e6dd; /* fallback */
     }
 
     .subhead {
-      font-family: 'Cormorant Garamond', serif;
-      font-style: italic;
-      font-size: 1.15rem;
-      font-weight: 400;
-      margin-bottom: 2.5rem;
-      color: #f4dad0;
-      opacity: 0.95;
-      text-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
-      line-height: 1.5;
+      font-style: italic; font-size: 1.15rem; margin-bottom: 2.5rem; color: #f4dad0; opacity: .95;
+      text-shadow: 0 2px 6px rgba(0,0,0,.3); line-height: 1.5;
     }
 
-    .cta-container {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      gap: 2.5rem;
-      flex-wrap: wrap;
-      margin-top: 3rem;
-    }
+    .cta-container { display: flex; justify-content: center; align-items: center; gap: 2.5rem; flex-wrap: wrap; margin-top: 3rem; }
 
     .cta-button {
-      background: linear-gradient(135deg, #4e2e36, #5a3540);
-      color: #f6e7df;
-      border: 2px solid rgba(246, 231, 223, 0.8);
-      padding: 1.15rem 2.4rem;
-      font-family: 'Playfair Display', serif;
-      font-size: 1rem;
-      font-weight: 500;
-      text-transform: uppercase;
-      text-decoration: none;
-      transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
-      border-radius: 12px;
-      min-width: 240px;
-      text-align: center;
-      position: relative;
-      overflow: hidden;
-      letter-spacing: 0.08em;
-      box-shadow: 
-        0 6px 20px rgba(78, 46, 54, 0.25),
-        0 2px 8px rgba(0, 0, 0, 0.2),
-        inset 0 1px 0 rgba(246, 231, 223, 0.1);
+      background: linear-gradient(135deg,#4e2e36,#5a3540);
+      color: #f6e7df; border: 2px solid rgba(246,231,223,.8);
+      padding: 1.15rem 2.4rem; font-family: 'Playfair Display', serif; font-size: 1rem; font-weight: 500;
+      text-transform: uppercase; letter-spacing: .08em; text-decoration: none; text-align: center;
+      border-radius: 12px; min-width: 240px; position: relative; overflow: hidden;
+      box-shadow: 0 6px 20px rgba(78,46,54,.25), 0 2px 8px rgba(0,0,0,.2), inset 0 1px 0 rgba(246,231,223,.1);
+      transition: transform .5s cubic-bezier(.4,0,.2,1), box-shadow .5s cubic-bezier(.4,0,.2,1), background .5s cubic-bezier(.4,0,.2,1), color .5s;
+    }
+    .cta-button::before { content: ""; position: absolute; top:0; left:-75%; width:50%; height:100%; transform: skewX(-20deg);
+      background: linear-gradient(120deg, rgba(246,231,223,.5), rgba(246,231,223,.3), rgba(246,231,223,.1), rgba(246,231,223,0)); }
+    .cta-button:hover::before { animation: luxeShimmer 1.4s ease-in-out forwards; }
+    .cta-button:hover { background: linear-gradient(135deg,#f6e7df,#faf0e8); color:#4e2e36; transform: translateY(-4px) scale(1.02); box-shadow: 0 15px 40px rgba(78,46,54,.4), 0 8px 25px rgba(246,231,223,.2); border-color:#faf0e8; letter-spacing:.1em; }
+    .cta-button:focus { outline: 2px solid #f4dad0; outline-offset: 2px; }
+
+    .mission { text-align: center; margin: 3rem auto; font-size: 1.2rem; max-width: 720px; color: #e8cfc4; padding: 0 2rem; opacity: 0; animation: gentleRise 1.5s ease-out .8s forwards; line-height: 1.7; letter-spacing: .01em; }
+
+    .whisper { text-align: center; margin: 1.5rem auto 0; font-size: 1.05rem; color: #d9c2bc; opacity: 0; animation: gentleRise 1.2s ease-out 1s forwards; }
+    .whisper a { color: #f6e7df; text-decoration: underline; }
+
+    footer { text-align: center; font-size: .9rem; margin: 4rem 0 2rem; color: #b8a4a0; opacity: 0; animation: gentleRise 1.2s ease-out 1.2s forwards; letter-spacing: .02em; }
+
+    /* Animations */
+    @keyframes gentleRise { from { opacity: 0; transform: translateY(20px);} to { opacity: 1; transform: translateY(0);} }
+    @keyframes luxeShimmer { from { left:-75%; } to { left:125%; } }
+    @keyframes breathe {
+      0%, 100% { transform: scale(1) rotate(0deg); filter: drop-shadow(0 0 22px rgba(246,231,223,.18)); }
+      50%       { transform: scale(1.02) rotate(.5deg); filter: drop-shadow(0 0 34px rgba(246,231,223,.32)); }
     }
 
-    .cta-button::before {
-      content: "";
-      position: absolute;
-      top: 0;
-      left: -75%;
-      width: 50%;
-      height: 100%;
-      background: linear-gradient(120deg, 
-        rgba(246, 231, 223, 0.5), 
-        rgba(246, 231, 223, 0.3), 
-        rgba(246, 231, 223, 0.1),
-        rgba(246, 231, 223, 0));
-      transform: skewX(-20deg);
-      transition: none;
-    }
-
-    .cta-button:hover::before {
-      animation: luxeShimmer 1.4s ease-in-out forwards;
-    }
-
-    .cta-button:hover {
-      background: linear-gradient(135deg, #f6e7df, #faf0e8);
-      color: #4e2e36;
-      transform: translateY(-4px) scale(1.02);
-      box-shadow: 
-        0 15px 40px rgba(78, 46, 54, 0.4),
-        0 8px 25px rgba(246, 231, 223, 0.2);
-      border-color: #faf0e8;
-      letter-spacing: 0.1em;
-    }
-
-    .cta-button:focus {
-      outline: 2px solid #f4dad0;
-      outline-offset: 2px;
-    }
-
-    @keyframes luxeShimmer {
-      0% {
-        left: -75%;
-      }
-      100% {
-        left: 125%;
-      }
-    }
-
-    .mission {
-      text-align: center;
-      margin: 3rem auto;
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 1.2rem;
-      font-weight: 400;
-      max-width: 700px;
-      color: #e8cfc4;
-      padding: 0 2rem;
-      opacity: 0;
-      animation: gentleRise 1.5s ease-out 0.8s forwards;
-      line-height: 1.7;
-      letter-spacing: 0.01em;
-    }
-
-    footer {
-      text-align: center;
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 0.9rem;
-      font-weight: 300;
-      margin: 4rem 0 2rem;
-      color: #b8a4a0;
-      opacity: 0;
-      animation: gentleRise 1.2s ease-out 1.2s forwards;
-      letter-spacing: 0.02em;
-    }
-
-    @keyframes gentleRise {
-      from {
-        opacity: 0;
-        transform: translateY(20px);
-      }
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
-
-    /* Responsive Design */
+    /* Responsive */
     @media (max-width: 768px) {
-      header {
-        padding: 3rem 1.5rem 1.5rem;
-      }
-      
-      .cta-container {
-        gap: 2rem;
-      }
-      
-      .cta-button {
-        min-width: 200px;
-        padding: 0.9rem 1.8rem;
-        font-size: 0.95rem;
-      }
-      
-      h1 {
-        font-size: 1.7rem;
-      }
-      
-      .subhead {
-        font-size: 1.05rem;
-      }
-
-      .mission {
-        font-size: 1.1rem;
-      }
-
-      .sigil {
-        width: 95px;
-      }
+      header { padding: 3rem 1.5rem 1.5rem; }
+      .cta-container { gap: 2rem; }
+      .cta-button { min-width: 200px; padding: .9rem 1.8rem; font-size: .95rem; }
+      h1 { font-size: 1.7rem; }
+      .subhead { font-size: 1.05rem; }
+      .mission { font-size: 1.1rem; }
+      .sigil { width: 95px; }
     }
 
-    /* Accessibility */
+    /* Accessibility: honor reduced motion */
     @media (prefers-reduced-motion: reduce) {
-      *, *::before, *::after {
-        animation-duration: 0.01ms !important;
-        animation-iteration-count: 1 !important;
-        transition-duration: 0.01ms !important;
-      }
+      *, *::before, *::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; }
     }
   </style>
 </head>
 <body>
   <header>
-    <img src="sigil_transparent.png" alt="Cherie Linda Sigil" class="sigil" />
+    <img src="/sigil_transparent.png" alt="Cherie Linda Sigil" class="sigil" />
     <h1>Cherie Linda</h1>
     <div class="subhead">"You don't need another meditation. You need a return."</div>
+
     <div class="cta-container">
-      <a href="https://cherielinda.substack.com" class="cta-button" target="_blank" rel="noopener noreferrer">Join the Velvet Letters</a>
-      <a href="https://stan.store/cherielinda" class="cta-button" target="_blank" rel="noopener noreferrer">Enter the Vault</a>
+      <a href="https://cherielinda.substack.com/?utm_source=portal&utm_medium=site&utm_campaign=velvet_letters" class="cta-button" target="_blank" rel="noopener" aria-label="Join the Velvet Letters newsletter">Join the Velvet Letters</a>
+      <a href="https://pensight.com/x/cherielinda?utm_source=portal&utm_medium=site&utm_campaign=enter_vault" class="cta-button" target="_blank" rel="noopener" aria-label="Enter the Vault shop and rituals">Enter the Vault</a>
     </div>
   </header>
+
   <section class="mission">
-    Tools, rituals & portals for the sacred feminine.<br>
+    Tools, rituals & portals for the sacred feminine.<br />
     Sensual sovereignty. Deep reclamation. Starting at $22.
   </section>
+
+  <section class="whisper">
+    The portal opens. The body remembers.
+    <br /><a href="https://pensight.com/x/cherielinda?utm_source=portal&utm_medium=site&utm_campaign=enter_now">Enter now →</a>
+  </section>
+
   <footer>
     © 2025 Pixique LLC · Cherie Linda
   </footer>
+
+  <!-- Lightweight analytics (optional) -->
+  <!-- <script defer data-domain="cherielinda.com" src="https://plausible.io/js/script.js"></script> -->
 </body>
 </html>
