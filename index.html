@@ -6,15 +6,15 @@
 
   <meta name="p:domain_verify" content="d612c7126628212b8efc2bb4ccb4656c"/>
 
-  <title>Cherie Linda | The Boundary Vault & Sacred Rituals</title>
-  <meta name="description" content="For women who are done explaining themselves. Download 'The Boundary Vault' (Free) or enter the shop for high-ticket sensual rituals and membership." />
+  <title>Cherie Linda | Sensual Rituals for Women Done Explaining Themselves</title>
+  <meta name="description" content="For women who want more power, pleasure, and peace. Start with The Boundary Vault (free) or enter The Velvet Room." />
   <meta name="keywords" content="feminine energy, sacred rituals, boundary vault, soft power, The Velvet Room, Cherie Linda, I Don't Argue" />
   <meta name="author" content="Cherie Linda" />
   <link rel="canonical" href="https://cherielinda.com" />
   <meta name="theme-color" content="#1e0f13" />
 
   <meta property="og:title" content="Cherie Linda | For Women Done Explaining Themselves" />
-  <meta property="og:description" content="Get the 5 Whispered Phrases to Protect Your Energy (Free). Enter the Velvet Room." />
+  <meta property="og:description" content="Sensual tools & rituals for power. Get the 5 Whispered Phrases (Free)." />
   <meta property="og:image" content="https://cherielinda.com/sigil_social.png" />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://cherielinda.com" />
@@ -30,14 +30,11 @@
     /* Base */
     body {
       font-family: 'Cormorant Garamond', 'Georgia', serif;
-      background: #1e0f13; /* Deep Velvet */
+      background: #1e0f13;
       color: #f6e7df;
       line-height: 1.6;
       min-height: 100vh;
       overflow-x: hidden;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
     }
 
     /* Luxe background depth */
@@ -51,151 +48,491 @@
       pointer-events: none; z-index: -1;
     }
 
+    .container {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 0 1.5rem;
+    }
+
+    /* Header */
     header {
       text-align: center;
-      padding: 3.5rem 1.5rem 1rem;
-      opacity: 0; animation: gentleRise 1.5s ease-out .2s forwards;
-      max-width: 800px;
+      padding: 3rem 1.5rem 2rem;
+      opacity: 0; 
+      animation: gentleRise 1.5s ease-out .2s forwards;
     }
 
     .sigil {
-      width: 90px; height: auto; margin-bottom: 1.2rem;
+      width: 85px; 
+      height: auto; 
+      margin-bottom: 1.2rem;
       filter: drop-shadow(0 0 20px rgba(246,231,223,.15));
-      animation: gentleRise 1.5s ease-out .2s forwards, breathe 6s ease-in-out 2s infinite;
+      animation: breathe 6s ease-in-out 2s infinite;
     }
 
     h1 {
       font-family: 'Playfair Display', serif;
-      font-size: 2.2rem; font-weight: 600; margin: 0 0 0.5rem; letter-spacing: .03em;
+      font-size: 2.2rem; 
+      font-weight: 600; 
+      margin: 0 0 0.5rem; 
+      letter-spacing: .03em;
       color: #f9e6dd;
     }
 
     .tagline {
       font-family: 'Playfair Display', serif;
       font-style: italic;
-      font-size: 1.25rem;
+      font-size: 1.3rem;
       color: #e8cfc4;
-      margin-bottom: 1rem;
+      margin-bottom: 0.5rem;
       line-height: 1.4;
       text-shadow: 0 2px 4px rgba(0,0,0,0.5);
     }
 
     .sub-tagline {
-        font-size: 1rem;
-        color: #b8a4a0;
-        text-transform: uppercase;
-        letter-spacing: 0.15em;
-        font-weight: 500;
-        margin-bottom: 2.5rem;
-        font-size: 0.8rem;
+      font-size: 0.95rem;
+      color: #b8a4a0;
+      letter-spacing: 0.08em;
+      font-weight: 400;
+      margin-bottom: 1rem;
     }
 
-    /* The "Offer" Card - New Addition */
-    .featured-offer {
-        background: linear-gradient(145deg, rgba(255, 255, 255, 0.03), rgba(255, 255, 255, 0.01));
-        border: 1px solid rgba(246, 231, 223, 0.15);
-        padding: 2rem;
-        border-radius: 4px;
-        max-width: 480px;
-        margin: 0 auto 3rem;
-        text-align: center;
-        box-shadow: 0 10px 30px rgba(0,0,0,0.3);
-        position: relative;
-        opacity: 0; animation: gentleRise 1.5s ease-out .5s forwards;
+    .social-proof {
+      font-size: 0.85rem;
+      color: #8c7875;
+      letter-spacing: 0.05em;
+      margin-top: 1rem;
     }
-    
-    .featured-offer::before {
-        content: "FREE GIFT";
-        position: absolute;
-        top: -12px; left: 50%; transform: translateX(-50%);
-        background: #1e0f13;
-        border: 1px solid #b8a4a0;
-        color: #b8a4a0;
-        font-size: 0.7rem;
-        padding: 2px 12px;
-        letter-spacing: 0.15em;
-        text-transform: uppercase;
+
+    /* Hero Offer - The Free Lead */
+    .hero-offer {
+      margin: 3rem auto 4rem;
+      opacity: 0; 
+      animation: gentleRise 1.5s ease-out .5s forwards;
+    }
+
+    .offer-card {
+      background: linear-gradient(145deg, rgba(255, 255, 255, 0.04), rgba(255, 255, 255, 0.01));
+      border: 1px solid rgba(246, 231, 223, 0.25);
+      border-radius: 6px;
+      overflow: hidden;
+      box-shadow: 0 15px 40px rgba(0,0,0,0.4);
+      position: relative;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .offer-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 20px 50px rgba(0,0,0,0.5);
+    }
+
+    .offer-badge {
+      position: absolute;
+      top: 20px; 
+      right: 20px;
+      background: rgba(30, 15, 19, 0.95);
+      border: 1px solid #b08d7d;
+      color: #b08d7d;
+      font-size: 0.7rem;
+      padding: 6px 16px;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      font-weight: 600;
+      z-index: 2;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+    }
+
+    .offer-image {
+      width: 100%;
+      height: 320px;
+      object-fit: cover;
+      display: block;
+    }
+
+    .offer-content {
+      padding: 2rem 2.5rem;
+      text-align: center;
     }
 
     .offer-title {
-        font-family: 'Playfair Display', serif;
-        font-size: 1.5rem;
-        color: #f6e7df;
-        margin-bottom: 0.5rem;
+      font-family: 'Playfair Display', serif;
+      font-size: 1.8rem;
+      color: #f9e6dd;
+      margin-bottom: 0.75rem;
+      letter-spacing: 0.02em;
     }
-    
+
     .offer-desc {
-        font-size: 1rem;
-        color: #d9c2bc;
-        margin-bottom: 1.5rem;
-        font-style: italic;
+      font-size: 1.05rem;
+      color: #d9c2bc;
+      margin-bottom: 1.5rem;
+      line-height: 1.5;
+    }
+
+    .offer-detail {
+      font-size: 0.9rem;
+      color: #a89389;
+      font-style: italic;
+      margin-bottom: 1.75rem;
     }
 
     /* Buttons */
-    .cta-container { display: flex; flex-direction: column; gap: 1rem; width: 100%; align-items: center; }
-
     .btn {
-      width: 100%;
-      max-width: 320px;
-      padding: 1rem 1.5rem;
+      display: inline-block;
+      padding: 1.1rem 2.5rem;
       font-family: 'Playfair Display', serif;
       font-size: 1rem;
       text-transform: uppercase;
-      letter-spacing: 0.1em;
+      letter-spacing: 0.12em;
       text-decoration: none;
       text-align: center;
       transition: all 0.4s ease;
       cursor: pointer;
       position: relative;
+      font-weight: 600;
     }
 
-    /* Primary Button (Gold) */
-    .btn-gold {
-        background: linear-gradient(135deg, #b08d7d, #8c6a5d);
-        color: #1e0f13;
-        font-weight: 600;
-        border: 1px solid #b08d7d;
-        box-shadow: 0 4px 15px rgba(176, 141, 125, 0.2);
-    }
-    .btn-gold:hover {
-        background: linear-gradient(135deg, #d4b5a8, #b08d7d);
-        transform: translateY(-2px);
-        box-shadow: 0 8px 25px rgba(176, 141, 125, 0.3);
+    .btn-primary {
+      background: linear-gradient(135deg, #b08d7d, #8c6a5d);
+      color: #1e0f13;
+      border: 1px solid #b08d7d;
+      box-shadow: 0 6px 20px rgba(176, 141, 125, 0.3);
     }
 
-    /* Secondary Button (Outline) */
-    .btn-outline {
-        background: transparent;
-        color: #b8a4a0;
-        border: 1px solid rgba(184, 164, 160, 0.3);
-        font-size: 0.9rem;
-    }
-    .btn-outline:hover {
-        border-color: #f6e7df;
-        color: #f6e7df;
-        background: rgba(246, 231, 223, 0.02);
+    .btn-primary:hover {
+      background: linear-gradient(135deg, #d4b5a8, #b08d7d);
+      transform: translateY(-3px);
+      box-shadow: 0 10px 30px rgba(176, 141, 125, 0.4);
     }
 
-    .menu-preview {
-        margin-top: 3rem;
-        text-align: center;
-        font-size: 0.9rem;
-        color: #8c7875;
-        opacity: 0; animation: gentleRise 1.5s ease-out .8s forwards;
+    .btn-secondary {
+      background: transparent;
+      color: #b8a4a0;
+      border: 1px solid rgba(184, 164, 160, 0.4);
+      padding: 0.9rem 2rem;
+      font-size: 0.95rem;
     }
-    .menu-preview span { display: block; margin: 0.3rem 0; font-family: 'Playfair Display', serif; letter-spacing: 0.05em; }
 
-    footer { 
-        text-align: center; font-size: .8rem; margin: 4rem 0 2rem; 
-        color: #5c4a4f; letter-spacing: .05em; 
-        opacity: 0; animation: gentleRise 1.2s ease-out 1s forwards;
+    .btn-secondary:hover {
+      border-color: #f6e7df;
+      color: #f6e7df;
+      background: rgba(246, 231, 223, 0.03);
+    }
+
+    /* Section Headers */
+    .section-header {
+      text-align: center;
+      margin: 4rem 0 2.5rem;
+      opacity: 0; 
+      animation: gentleRise 1.5s ease-out .8s forwards;
+    }
+
+    .section-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.6rem;
+      color: #f6e7df;
+      margin-bottom: 0.5rem;
+      letter-spacing: 0.02em;
+    }
+
+    .section-subtitle {
+      font-size: 1rem;
+      color: #a89389;
+      font-style: italic;
+    }
+
+    /* Product Ladder */
+    .product-ladder {
+      margin: 3rem 0;
+      opacity: 0; 
+      animation: gentleRise 1.5s ease-out 1s forwards;
+    }
+
+    .product-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 2rem;
+      margin-bottom: 2rem;
+    }
+
+    @media (min-width: 768px) {
+      .product-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    .product-card {
+      background: linear-gradient(145deg, rgba(255, 255, 255, 0.03), rgba(255, 255, 255, 0.01));
+      border: 1px solid rgba(246, 231, 223, 0.15);
+      border-radius: 6px;
+      overflow: hidden;
+      transition: all 0.4s ease;
+      position: relative;
+    }
+
+    .product-card:hover {
+      transform: translateY(-6px);
+      border-color: rgba(246, 231, 223, 0.3);
+      box-shadow: 0 15px 35px rgba(0,0,0,0.4);
+    }
+
+    .product-image {
+      width: 100%;
+      height: 240px;
+      object-fit: cover;
+      display: block;
+    }
+
+    .product-info {
+      padding: 1.75rem;
+    }
+
+    .product-name {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.3rem;
+      color: #f6e7df;
+      margin-bottom: 0.5rem;
+      letter-spacing: 0.01em;
+    }
+
+    .product-type {
+      font-size: 0.85rem;
+      color: #a89389;
+      margin-bottom: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+    }
+
+    .product-desc {
+      font-size: 0.95rem;
+      color: #c9b3ad;
+      margin-bottom: 1.25rem;
+      line-height: 1.5;
+      font-style: italic;
+    }
+
+    .product-price {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.4rem;
+      color: #b08d7d;
+      margin-bottom: 1.25rem;
+      font-weight: 600;
+    }
+
+    .product-cta {
+      display: block;
+      text-align: center;
+      padding: 0.9rem 1.5rem;
+      background: transparent;
+      color: #b8a4a0;
+      border: 1px solid rgba(184, 164, 160, 0.3);
+      font-family: 'Playfair Display', serif;
+      font-size: 0.9rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      text-decoration: none;
+      transition: all 0.3s ease;
+    }
+
+    .product-cta:hover {
+      border-color: #b08d7d;
+      color: #b08d7d;
+      background: rgba(176, 141, 125, 0.05);
+    }
+
+    /* Featured Product - Full Width */
+    .featured-product {
+      margin: 3rem 0;
+    }
+
+    .featured-card {
+      background: linear-gradient(145deg, rgba(255, 255, 255, 0.04), rgba(255, 255, 255, 0.01));
+      border: 1px solid rgba(246, 231, 223, 0.2);
+      border-radius: 6px;
+      overflow: hidden;
+      box-shadow: 0 15px 40px rgba(0,0,0,0.4);
+    }
+
+    @media (min-width: 768px) {
+      .featured-card {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+
+    .featured-image {
+      width: 100%;
+      height: 100%;
+      min-height: 320px;
+      object-fit: cover;
+      display: block;
+    }
+
+    .featured-info {
+      padding: 2.5rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .featured-tag {
+      font-size: 0.75rem;
+      color: #b08d7d;
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+      margin-bottom: 1rem;
+    }
+
+    .featured-name {
+      font-family: 'Playfair Display', serif;
+      font-size: 2rem;
+      color: #f9e6dd;
+      margin-bottom: 1rem;
+      letter-spacing: 0.01em;
+    }
+
+    .featured-desc {
+      font-size: 1.05rem;
+      color: #c9b3ad;
+      margin-bottom: 1.5rem;
+      line-height: 1.6;
+    }
+
+    .featured-price {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.6rem;
+      color: #b08d7d;
+      margin-bottom: 1.75rem;
+      font-weight: 600;
+    }
+
+    /* Book Section */
+    .book-section {
+      margin: 4rem 0;
+      text-align: center;
+      opacity: 0; 
+      animation: gentleRise 1.5s ease-out 1.2s forwards;
+    }
+
+    .book-card {
+      background: linear-gradient(145deg, rgba(255, 255, 255, 0.03), rgba(255, 255, 255, 0.01));
+      border: 1px solid rgba(246, 231, 223, 0.2);
+      border-radius: 6px;
+      padding: 2rem;
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    @media (min-width: 640px) {
+      .book-card {
+        display: grid;
+        grid-template-columns: 200px 1fr;
+        gap: 2rem;
+        text-align: left;
+      }
+    }
+
+    .book-cover {
+      width: 100%;
+      max-width: 200px;
+      margin: 0 auto 1.5rem;
+      border-radius: 4px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+    }
+
+    @media (min-width: 640px) {
+      .book-cover {
+        margin: 0;
+      }
+    }
+
+    .book-info {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .book-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.4rem;
+      color: #f6e7df;
+      margin-bottom: 0.5rem;
+    }
+
+    .book-type {
+      font-size: 0.9rem;
+      color: #a89389;
+      margin-bottom: 1rem;
+    }
+
+    .book-desc {
+      font-size: 0.95rem;
+      color: #c9b3ad;
+      margin-bottom: 1.5rem;
+      line-height: 1.5;
+    }
+
+    /* Footer CTA */
+    .footer-cta {
+      text-align: center;
+      margin: 4rem 0 3rem;
+      padding: 3rem 2rem;
+      background: linear-gradient(145deg, rgba(255, 255, 255, 0.02), rgba(255, 255, 255, 0.01));
+      border-top: 1px solid rgba(246, 231, 223, 0.1);
+      border-bottom: 1px solid rgba(246, 231, 223, 0.1);
+      opacity: 0; 
+      animation: gentleRise 1.5s ease-out 1.4s forwards;
+    }
+
+    .footer-cta-text {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.3rem;
+      color: #e8cfc4;
+      margin-bottom: 1.5rem;
+      font-style: italic;
+    }
+
+    footer {
+      text-align: center;
+      font-size: 0.8rem;
+      padding: 2rem 0;
+      color: #5c4a4f;
+      letter-spacing: 0.05em;
+    }
+
+    .footer-links {
+      margin-bottom: 1rem;
+    }
+
+    .footer-links a {
+      color: #8c7875;
+      text-decoration: none;
+      margin: 0 1rem;
+      transition: color 0.3s ease;
+    }
+
+    .footer-links a:hover {
+      color: #b8a4a0;
     }
 
     /* Animations */
-    @keyframes gentleRise { from { opacity: 0; transform: translateY(15px);} to { opacity: 1; transform: translateY(0);} }
+    @keyframes gentleRise {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
     @keyframes breathe {
       0%, 100% { transform: scale(1); filter: drop-shadow(0 0 15px rgba(246,231,223,.1)); }
-      50%       { transform: scale(1.02); filter: drop-shadow(0 0 25px rgba(246,231,223,.25)); }
+      50% { transform: scale(1.03); filter: drop-shadow(0 0 25px rgba(246,231,223,.25)); }
+    }
+
+    /* Mobile Responsive */
+    @media (max-width: 640px) {
+      h1 { font-size: 1.8rem; }
+      .tagline { font-size: 1.1rem; }
+      .offer-title { font-size: 1.5rem; }
+      .section-title { font-size: 1.4rem; }
+      .featured-name { font-size: 1.6rem; }
     }
   </style>
 </head>
@@ -205,33 +542,117 @@
     <img src="/sigil_transparent.png" alt="Cherie Linda Sigil" class="sigil" />
     <h1>Cherie Linda</h1>
     <div class="tagline">"I don't argue. I don't explain."</div>
-    <div class="sub-tagline">Sensual Tools & Rituals for Power</div>
+    <div class="sub-tagline">Sensual Tools & Rituals for Women Who Want More Power, Pleasure, and Peace</div>
+    <div class="social-proof">Trusted by 3,000+ women reclaiming their energy</div>
   </header>
 
-  <section class="featured-offer">
-    <div class="offer-title">The Boundary Vault</div>
-    <div class="offer-desc">5 Whispered Phrases to Protect Your Energy</div>
-    
-    <div class="cta-container">
-        <a href="https://pensight.com/x/cherielinda" class="btn btn-gold">Get the Free Guide</a>
+  <div class="container">
+    <!-- Hero Offer: Free Lead Magnet -->
+    <section class="hero-offer">
+      <div class="offer-card">
+        <span class="offer-badge">FREE</span>
+        <img src="/boundary_vault_cover.jpg" alt="The Boundary Vault" class="offer-image" />
+        <div class="offer-content">
+          <h2 class="offer-title">The Boundary Vault</h2>
+          <p class="offer-desc">5 Whispered Phrases to Protect Your Energy</p>
+          <p class="offer-detail">When "no" feels too harsh and explaining feels exhausting—say these instead.</p>
+          <a href="https://pensight.com/x/cherielinda" class="btn btn-primary">Get the Free Phrases</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section: Your Journey Starts Here -->
+    <div class="section-header">
+      <h2 class="section-title">Your Journey Into Power</h2>
+      <p class="section-subtitle">Start with what calls to you</p>
     </div>
-  </section>
 
-  <div class="cta-container">
-      <a href="https://pensight.com/x/cherielinda" class="btn btn-outline">Enter The Velvet Room Shop</a>
-      <a href="https://cherielinda.substack.com" class="btn btn-outline" style="border:none; font-size: 0.85rem; text-transform:none; letter-spacing: 0.05em; opacity: 0.7;">Read the Letters</a>
-  </div>
+    <!-- Product Ladder: Rituals -->
+    <section class="product-ladder">
+      <div class="product-grid">
+        
+        <div class="product-card">
+          <img src="/sacred_no_cover.jpg" alt="The Sacred No" class="product-image" />
+          <div class="product-info">
+            <div class="product-type">Digital Ritual PDF</div>
+            <h3 class="product-name">✨ The Sacred No</h3>
+            <p class="product-desc">Practice the pleasure of refusal without guilt, shame, or explanation.</p>
+            <div class="product-price">$147</div>
+            <a href="https://pensight.com/x/cherielinda" class="product-cta">Download the Ritual</a>
+          </div>
+        </div>
 
-  <div class="menu-preview">
-      <span>The Inner Daughter Ritual ($297)</span>
-      <span>The Sacred No ($147)</span>
-      <span>Private Ritual Whisper ($697)</span>
+        <div class="product-card">
+          <img src="/inner_daughter_cover.jpg" alt="The Inner Daughter" class="product-image" />
+          <div class="product-info">
+            <div class="product-type">Digital Ritual PDF</div>
+            <h3 class="product-name">✨ The Inner Daughter</h3>
+            <p class="product-desc">Return to the girl who knew her worth before the world told her otherwise.</p>
+            <div class="product-price">$297</div>
+            <a href="https://pensight.com/x/cherielinda" class="product-cta">Download the Ritual</a>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- Featured Product: The Velvet Room Bundle -->
+    <section class="featured-product">
+      <div class="featured-card">
+        <img src="/velvet_room_cover.jpg" alt="The Velvet Room" class="featured-image" />
+        <div class="featured-info">
+          <div class="featured-tag">Most Popular</div>
+          <h3 class="featured-name">✨ The Velvet Room</h3>
+          <p class="featured-desc">A complete sensual audio ritual bundle. Immerse yourself in guided practices for reclaiming your power, softness, and sacred boundaries.</p>
+          <div class="featured-price">$497</div>
+          <a href="https://pensight.com/x/cherielinda" class="btn btn-primary">Enter The Velvet Room</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Private Whisper -->
+    <section class="featured-product">
+      <div class="featured-card">
+        <img src="/private_whisper_cover.jpg" alt="Private Ritual Whisper" class="featured-image" />
+        <div class="featured-info">
+          <div class="featured-tag">Limited Availability</div>
+          <h3 class="featured-name">🔒 Private Ritual Whisper</h3>
+          <p class="featured-desc">Receive my voice guiding you through a custom ritual—created just for you, your situation, your needs.</p>
+          <div class="featured-price">$697</div>
+          <a href="https://pensight.com/x/cherielinda" class="btn btn-primary">Request Your Whisper</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Book Section -->
+    <section class="book-section">
+      <div class="book-card">
+        <img src="/book_cover.jpg" alt="I Don't Argue Book Cover" class="book-cover" />
+        <div class="book-info">
+          <h3 class="book-title">I Don't Argue: For Women Done Explaining Themselves</h3>
+          <p class="book-type">Kindle Book</p>
+          <p class="book-desc">The philosophy behind the rituals. For women who are tired of defending, justifying, and performing.</p>
+          <a href="https://pensight.com/x/cherielinda" class="btn btn-secondary">Get the Book</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer CTA -->
+    <section class="footer-cta">
+      <p class="footer-cta-text">Want ritual notes & letters written just for you?</p>
+      <a href="https://cherielinda.substack.com" class="btn btn-secondary">Read The Letters</a>
+    </section>
+
   </div>
 
   <footer>
-    © 2025 Pixique LLC · Cherie Linda
+    <div class="footer-links">
+      <a href="https://pensight.com/x/cherielinda">Shop</a>
+      <a href="https://cherielinda.substack.com">Letters</a>
+      <a href="mailto:hello@cherielinda.com">Contact</a>
+    </div>
+    <div>© 2025 Pixique LLC · Cherie Linda</div>
   </footer>
 
 </body>
 </html>
-```
