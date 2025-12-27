@@ -128,18 +128,18 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     }
 
     .offer-card {
-      background: linear-gradient(145deg, rgba(255, 255, 255, 0.04), rgba(255, 255, 255, 0.01));
-      border: 1px solid rgba(246, 231, 223, 0.25);
+      background: linear-gradient(145deg, rgba(255, 255, 255, 0.06), rgba(255, 255, 255, 0.02));
+      border: 2px solid rgba(246, 231, 223, 0.35);
       border-radius: 6px;
       overflow: hidden;
-      box-shadow: 0 15px 40px rgba(0,0,0,0.4);
+      box-shadow: 0 20px 50px rgba(0,0,0,0.5), 0 0 40px rgba(176, 141, 125, 0.15);
       position: relative;
       transition: transform 0.3s ease, box-shadow 0.3s ease;
     }
 
     .offer-card:hover {
-      transform: translateY(-4px);
-      box-shadow: 0 20px 50px rgba(0,0,0,0.5);
+      transform: translateY(-6px);
+      box-shadow: 0 25px 60px rgba(0,0,0,0.6), 0 0 50px rgba(176, 141, 125, 0.25);
     }
 
     .offer-badge {
@@ -168,6 +168,16 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     .offer-content {
       padding: 2rem 2.5rem;
       text-align: center;
+    }
+
+    /* NEW: Directive line above CTA */
+    .directive-line {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1rem;
+      color: #b08d7d;
+      letter-spacing: 0.05em;
+      margin-bottom: 1.5rem;
+      font-weight: 500;
     }
 
     .offer-title {
@@ -212,13 +222,19 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       background: linear-gradient(135deg, #b08d7d, #8c6a5d);
       color: #1e0f13;
       border: 1px solid #b08d7d;
-      box-shadow: 0 6px 20px rgba(176, 141, 125, 0.3);
+      box-shadow: 0 8px 25px rgba(176, 141, 125, 0.4);
+      animation: subtlePulse 3s ease-in-out infinite;
     }
 
     .btn-primary:hover {
       background: linear-gradient(135deg, #d4b5a8, #b08d7d);
       transform: translateY(-3px);
-      box-shadow: 0 10px 30px rgba(176, 141, 125, 0.4);
+      box-shadow: 0 12px 35px rgba(176, 141, 125, 0.5);
+    }
+
+    @keyframes subtlePulse {
+      0%, 100% { box-shadow: 0 8px 25px rgba(176, 141, 125, 0.4); }
+      50% { box-shadow: 0 8px 30px rgba(176, 141, 125, 0.5); }
     }
 
     .btn-secondary {
@@ -241,6 +257,15 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       margin: 4rem 0 2.5rem;
       opacity: 0; 
       animation: gentleRise 1.5s ease-out .8s forwards;
+    }
+
+    .section-divider {
+      font-size: 0.85rem;
+      color: #8c7875;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      margin-bottom: 1rem;
+      font-weight: 500;
     }
 
     .section-title {
@@ -269,6 +294,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       grid-template-columns: 1fr;
       gap: 2rem;
       margin-bottom: 2rem;
+      opacity: 0.85;
     }
 
     @media (min-width: 768px) {
@@ -278,8 +304,8 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     }
 
     .product-card {
-      background: linear-gradient(145deg, rgba(255, 255, 255, 0.03), rgba(255, 255, 255, 0.01));
-      border: 1px solid rgba(246, 231, 223, 0.15);
+      background: linear-gradient(145deg, rgba(255, 255, 255, 0.025), rgba(255, 255, 255, 0.01));
+      border: 1px solid rgba(246, 231, 223, 0.12);
       border-radius: 6px;
       overflow: hidden;
       transition: all 0.4s ease;
@@ -288,8 +314,9 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
     .product-card:hover {
       transform: translateY(-6px);
-      border-color: rgba(246, 231, 223, 0.3);
+      border-color: rgba(246, 231, 223, 0.25);
       box-shadow: 0 15px 35px rgba(0,0,0,0.4);
+      opacity: 1;
     }
 
     .product-image {
@@ -359,14 +386,22 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     /* Featured Product - Full Width */
     .featured-product {
       margin: 3rem 0;
+      opacity: 0.9;
     }
 
     .featured-card {
-      background: linear-gradient(145deg, rgba(255, 255, 255, 0.04), rgba(255, 255, 255, 0.01));
-      border: 1px solid rgba(246, 231, 223, 0.2);
+      background: linear-gradient(145deg, rgba(255, 255, 255, 0.03), rgba(255, 255, 255, 0.01));
+      border: 1px solid rgba(246, 231, 223, 0.15);
       border-radius: 6px;
       overflow: hidden;
-      box-shadow: 0 15px 40px rgba(0,0,0,0.4);
+      box-shadow: 0 15px 40px rgba(0,0,0,0.35);
+      transition: all 0.4s ease;
+    }
+
+    .featured-card:hover {
+      opacity: 1;
+      border-color: rgba(246, 231, 223, 0.25);
+      box-shadow: 0 18px 45px rgba(0,0,0,0.45);
     }
 
     @media (min-width: 768px) {
@@ -431,12 +466,18 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     }
 
     .book-card {
-      background: linear-gradient(145deg, rgba(255, 255, 255, 0.03), rgba(255, 255, 255, 0.01));
-      border: 1px solid rgba(246, 231, 223, 0.2);
+      background: linear-gradient(145deg, rgba(255, 255, 255, 0.025), rgba(255, 255, 255, 0.01));
+      border: 1px solid rgba(246, 231, 223, 0.15);
       border-radius: 6px;
       padding: 2rem;
       max-width: 600px;
       margin: 0 auto;
+      opacity: 0.9;
+      transition: opacity 0.3s ease;
+    }
+
+    .book-card:hover {
+      opacity: 1;
     }
 
     @media (min-width: 640px) {
@@ -551,6 +592,50 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       .featured-name { font-size: 1.6rem; }
     }
   </style>
+
+  <!-- Conversion Tracking Script -->
+  <script>
+    // Track all CTA clicks
+    document.addEventListener('DOMContentLoaded', function() {
+      // Track free offer clicks
+      const freeOfferBtn = document.querySelector('[data-track="boundary-vault"]');
+      if (freeOfferBtn) {
+        freeOfferBtn.addEventListener('click', function() {
+          gtag('event', 'click', {
+            'event_category': 'CTA',
+            'event_label': 'Boundary Vault - Free Offer',
+            'value': 0
+          });
+        });
+      }
+
+      // Track paid product clicks
+      const productLinks = document.querySelectorAll('[data-track^="product-"]');
+      productLinks.forEach(function(link) {
+        link.addEventListener('click', function() {
+          const productName = this.getAttribute('data-track');
+          gtag('event', 'click', {
+            'event_category': 'CTA',
+            'event_label': productName,
+            'value': 1
+          });
+        });
+      });
+
+      // Track external links
+      const externalLinks = document.querySelectorAll('a[href^="https://pensight.com"], a[href^="https://www.amazon.com"], a[href^="https://cherielinda.substack.com"]');
+      externalLinks.forEach(function(link) {
+        link.addEventListener('click', function() {
+          const destination = this.href;
+          gtag('event', 'outbound_click', {
+            'event_category': 'Outbound Link',
+            'event_label': destination,
+            'transport_type': 'beacon'
+          });
+        });
+      });
+    });
+  </script>
 </head>
 <body>
   <!-- Google Tag Manager (noscript) -->
@@ -576,13 +661,15 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           <h2 class="offer-title">The Boundary Vault</h2>
           <p class="offer-desc">5 Whispered Phrases to Protect Your Energy</p>
           <p class="offer-detail">When "no" feels too harsh and explaining feels exhausting—say these instead.</p>
-          <a href="https://pensight.com/x/cherielinda/boundary-vault" class="btn btn-primary">Get the Free Phrases</a>
+          <p class="directive-line">Start here. This takes under 2 minutes.</p>
+          <a href="https://pensight.com/x/cherielinda/boundary-vault" class="btn btn-primary" data-track="boundary-vault">Get the Free Phrases</a>
         </div>
       </div>
     </section>
 
     <!-- Section: Your Journey Starts Here -->
     <div class="section-header">
+      <div class="section-divider">For When You're Ready</div>
       <h2 class="section-title">Your Journey Into Power</h2>
       <p class="section-subtitle">Start with what calls to you</p>
     </div>
@@ -598,7 +685,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             <h3 class="product-name">✨ The Sacred No</h3>
             <p class="product-desc">Practice the pleasure of refusal without guilt, shame, or explanation.</p>
             <div class="product-price">$147</div>
-            <a href="https://pensight.com/x/cherielinda/the-sacred-no" class="product-cta">Download the Ritual</a>
+            <a href="https://pensight.com/x/cherielinda/the-sacred-no" class="product-cta" data-track="product-sacred-no">Download the Ritual</a>
           </div>
         </div>
 
@@ -609,7 +696,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             <h3 class="product-name">✨ The Inner Daughter</h3>
             <p class="product-desc">Return to the girl who knew her worth before the world told her otherwise.</p>
             <div class="product-price">$297</div>
-            <a href="https://pensight.com/x/cherielinda/inner-daughter" class="product-cta">Download the Ritual</a>
+            <a href="https://pensight.com/x/cherielinda/inner-daughter" class="product-cta" data-track="product-inner-daughter">Download the Ritual</a>
           </div>
         </div>
 
@@ -625,7 +712,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           <h3 class="featured-name">✨ The Velvet Room</h3>
           <p class="featured-desc">A complete sensual audio ritual bundle. Immerse yourself in guided practices for reclaiming your power, softness, and sacred boundaries.</p>
           <div class="featured-price">$497</div>
-          <a href="https://pensight.com/x/cherielinda/the-velvet-room" class="btn btn-primary">Enter The Velvet Room</a>
+          <a href="https://pensight.com/x/cherielinda/the-velvet-room" class="btn btn-primary" data-track="product-velvet-room">Enter The Velvet Room</a>
         </div>
       </div>
     </section>
@@ -639,7 +726,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           <h3 class="featured-name">🔒 Private Ritual Whisper</h3>
           <p class="featured-desc">Receive my voice guiding you through a custom ritual—created just for you, your situation, your needs.</p>
           <div class="featured-price">$697</div>
-          <a href="https://pensight.com/x/cherielinda/custom-audio" class="btn btn-primary">Request Your Whisper</a>
+          <a href="https://pensight.com/x/cherielinda/custom-audio" class="btn btn-primary" data-track="product-private-whisper">Request Your Whisper</a>
         </div>
       </div>
     </section>
@@ -652,7 +739,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           <h3 class="book-title">I Don't Argue: For Women Done Explaining Themselves</h3>
           <p class="book-type">Kindle Book</p>
           <p class="book-desc">The philosophy behind the rituals. For women who are tired of defending, justifying, and performing.</p>
-          <a href="https://www.amazon.com/Dont-Argue-Women-Explaining-Themselves-ebook/dp/B0FXT4JXV8" class="btn btn-secondary">Get the Book on Amazon</a>
+          <a href="https://www.amazon.com/Dont-Argue-Women-Explaining-Themselves-ebook/dp/B0FXT4JXV8" class="btn btn-secondary" data-track="product-book">Get the Book on Amazon</a>
         </div>
       </div>
     </section>
@@ -660,7 +747,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <!-- Footer CTA -->
     <section class="footer-cta">
       <p class="footer-cta-text">Want ritual notes & letters written just for you? Join the Substack</p>
-      <a href="https://cherielinda.substack.com" class="btn btn-secondary">Read The Letters</a>
+      <a href="https://cherielinda.substack.com" class="btn btn-secondary" data-track="substack-footer">Read The Letters</a>
     </section>
 
   </div>
